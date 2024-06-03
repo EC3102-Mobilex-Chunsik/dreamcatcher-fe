@@ -36,12 +36,12 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "no-constant-condition": "warn",
-    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn"
   }
 }
