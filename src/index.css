@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @font-face {
   font-family: "Pretendard";
   src: url("/src/assets/fonts/PretendardVariable.woff2") format("woff2");

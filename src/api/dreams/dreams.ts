@@ -1,4 +1,4 @@
-import { Dream } from "src/types";
+import { Dream, DreamInstance } from "src/types";
 
 import api from "../axios";
 
@@ -7,7 +7,7 @@ interface PostInterpretationRequest {
 }
 
 interface PostInterpretationResponse {
-  interpretation: Omit<Dream, "id" | "dateTime" | "inputPrompt">;
+  interpretation: DreamInstance;
 }
 
 export const postInterpretation = async (
@@ -17,6 +17,35 @@ export const postInterpretation = async (
     ...requestData,
     llm_type: "chatgpt",
   });
+
+  return response.data;
+};
+
+interface PostDreamRequest extends Omit<Dream, "id" | "images"> {}
+
+export const postDream = async (requestData: PostDreamRequest) => {
+  const response = await api.post<Dream>("/dreams", {
+    ...requestData,
+    images: [],
+  });
+
+  return response.data;
+};
+
+type DreamResponse = Omit<Dream, "dateTime"> & { dateTime: string };
+
+type GetDreamsResponse = DreamResponse[];
+
+export const getDreams = async () => {
+  const response = await api.get<GetDreamsResponse>("/dreams");
+
+  return response.data;
+};
+
+interface GetDreamResponse extends DreamResponse {}
+
+export const getDream = async (id: string) => {
+  const response = await api.get<GetDreamResponse>(`/dreams/${id}`);
 
   return response.data;
 };

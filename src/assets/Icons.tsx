@@ -69,7 +69,37 @@ const Star = ({
   );
 };
 
+const Arrow = ({
+  size = "24px",
+  fill = COLORS.ivory,
+  onClick,
+  style,
+  className,
+}: IconProps) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      onClick={onClick}
+      style={style}
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 6L9 12L15 18"
+        stroke={fill}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
 Icons.Dream = Dream;
 Icons.Star = Star;
+Icons.Arrow = Arrow;
 
 export default Icons;

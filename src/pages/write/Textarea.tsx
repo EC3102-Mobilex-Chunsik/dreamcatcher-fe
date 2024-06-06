@@ -8,6 +8,7 @@ interface TextAreaProps {
   placeholder: string;
   rows: number;
   maxLength: number;
+  disabled?: boolean;
   isSubmitDisabled: boolean;
   onSubmitClick: () => void;
 }
@@ -18,12 +19,14 @@ const Textarea = ({
   placeholder,
   rows,
   maxLength,
+  disabled,
   isSubmitDisabled,
   onSubmitClick,
 }: TextAreaProps) => {
   return (
     <Wrapper>
       <_Textarea
+        disabled={disabled}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
@@ -61,9 +64,10 @@ const Wrapper = styled.div`
   border-radius: 10px;
 `;
 
-const _Textarea = styled.textarea`
+const _Textarea = styled.textarea<{ disabled?: boolean }>`
   font-size: 20px;
-  color: ${COLORS.white};
+  line-height: 1.5;
+  color: ${({ disabled }) => (disabled ? COLORS.grey : COLORS.white)};
   width: 100%;
 
   ::placeholder {

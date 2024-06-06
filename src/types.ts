@@ -5,9 +5,13 @@ export interface Dream {
   inputPrompt: string;
   context: string;
   factors: Factor[];
+  images: string[];
 }
 
 export interface Factor {
   tagName: string;
   description: string;
 }
+
+export interface DreamInstance
+  extends Omit<Dream, "id" | "dateTime" | "inputPrompt" | "images"> {}

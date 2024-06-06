@@ -7,7 +7,7 @@ import styled from "styled-components";
 export interface DreamRecordCardProps {
   title: string;
   tags: string[];
-  date: Date;
+  date: string;
   image: string;
 }
 
