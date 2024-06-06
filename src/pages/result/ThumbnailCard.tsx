@@ -36,9 +36,13 @@ const ThumbnailCard = ({
         placeholder="여기에 제목 입력"
       />
 
-      <Spacer height="10px" />
+      {!(disabled === true) && (
+        <>
+          <Spacer height="10px" />
 
-      <Description>제목을 탭하여 수정할 수 있습니다.</Description>
+          <Description>제목을 탭하여 수정할 수 있습니다.</Description>
+        </>
+      )}
 
       <Spacer height="20px" />
 

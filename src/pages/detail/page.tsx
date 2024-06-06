@@ -44,6 +44,7 @@ const DetailPage = () => {
               image={`https://picsum.photos/300?random=${id}`}
               tags={data.factors.map((factor) => factor.tagName)}
               value={data.title}
+              disabled
             />
 
             <Spacer height="15px" />
