@@ -5,22 +5,33 @@ import styled from "styled-components";
 
 interface ThumbnailCardProps {
   image: string;
-  title: string;
   tags: string[];
+  disabled?: boolean;
+  title?: string;
 
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ThumbnailCard = ({ image, title, tags }: ThumbnailCardProps) => {
+const ThumbnailCard = ({
+  image,
+  tags,
+  title,
+  value,
+  onChange,
+  disabled,
+}: ThumbnailCardProps) => {
   return (
     <Wrapper>
-      <Image src={image} alt={`Image of ${title}`} />
+      <Image src={image} alt={`Image of ${value}`} />
 
       <Spacer height="15px" />
 
       <DreamTitle
         defaultValue={title}
+        onChange={onChange}
+        disabled={disabled}
+        value={value}
         type="text"
         placeholder="여기에 제목 입력"
       />

@@ -1,6 +1,10 @@
 import Icons from "src/assets/Icons";
 
-const Divider = () => {
+interface DividerProps {
+  $fill?: React.CSSProperties["fill"];
+}
+
+const Divider = ({ $fill }: DividerProps) => {
   return (
     <div
       style={{
@@ -12,9 +16,9 @@ const Divider = () => {
         alignItems: "center",
       }}
     >
-      <Icons.Star size="18px" />
-      <Icons.Star />
-      <Icons.Star size="18px" />
+      <Icons.Star size="18px" fill={$fill} />
+      <Icons.Star fill={$fill} />
+      <Icons.Star size="18px" fill={$fill} />
     </div>
   );
 };
