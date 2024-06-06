@@ -81,6 +81,8 @@ const DreamTitle = styled.input`
   font-size: 24px;
   text-align: center;
 
+  outline: none;
+
   width: 100%;
 
   :placeholder {
